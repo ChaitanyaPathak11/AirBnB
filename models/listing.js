@@ -22,7 +22,7 @@ const listingSchema = new Schema(
         },
         price:
         {
-            type: String,
+            type: Number,
         },
         location:
         {
