@@ -2,22 +2,35 @@
 
 <body>
 
-    <h3>Listing Details : </h3>
+    <div class="rows mt-3">
 
-    <ul>
-        <li> <%= listing.title %> </li>
-        <li> <%= listing.description %> </li>
-        <li> &#8377; <%= listing.price.toLocaleString("en-IN") %> </li>
-        <li> <%= listing.location %> </li>
-        <li> <%= listing.country %> </li>
-    </ul>
+        <div class="col-8 offset-3">
+            <h3>Listing Details</h3>
+        </div>
 
-    <a href="/listings/<%= listing._id %>/edit">Edit Your Listing</a>
+        <div class="card col-6 offset-3 show-card">
+            <img src="<%= listing.image %>" alt="listing_img" class="card-img-top show-img">
 
-    <br><br>
+            <div class="card-body">
+                <p class="card-text">
+                    <b> <%= listing.title %> </b> <br>
+                    <%= listing.description %> <br>
+                    &#8377; <%= listing.price.toLocaleString("en-IN") %> / night<br>
+                    <%= listing.location %> <br>
+                    <%= listing.country %> <br>
+                </p>
+            </div>
+        </div>
 
-    <form action="/listing/<%= listing._id %>?_method=DELETE" method="post">
-        <button>Delete Listing</button>
-    </form>
-    
+        <br>
+
+        <div class="show-btns">
+
+            <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn col-1 offset-3">Edit</a>
+        
+            <form action="/listing/<%= listing._id %>?_method=DELETE" method="post">
+                <button class="btn btn-dark offset-5">Delete</button>
+            </form>
+        </div>
+    </div>
 </body>
